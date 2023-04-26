@@ -2359,7 +2359,7 @@ runFunction(function()
 								end
 							end
 							local newvelo = movevec * SpeedValue.Value
-							entityLibrary.character.HumanoidRootPart.Velocity = Vector3.new(newvelo.X, entityLibrary.character.HumanoidRootPart.Velocity.Y, newvelo.Z)
+							entityLibrary.character.HumanoidRootPart.AssemblyLinearVelocity = Vector3.new(newvelo.X, entityLibrary.character.HumanoidRootPart.Velocity.Y, newvelo.Z)
 						elseif SpeedMethod.Value == "CFrame" then
 							local newpos = (movevec * (math.max(SpeedValue.Value - entityLibrary.character.Humanoid.WalkSpeed, 0) * delta))
 							if SpeedWallCheck.Enabled then
@@ -2380,7 +2380,7 @@ runFunction(function()
 						elseif SpeedMethod.Value == "Pulse" then 
 							local pulsenum = (SpeedPulseDuration.Value / 100)
 							local newvelo = movevec * (SpeedValue.Value + (entityLibrary.character.Humanoid.WalkSpeed - SpeedValue.Value) * (1 - (math.max(pulsetick - tick(), 0)) / pulsenum))
-							entityLibrary.character.HumanoidRootPart.Velocity = Vector3.new(newvelo.X, entityLibrary.character.HumanoidRootPart.Velocity.Y, newvelo.Z)
+							entityLibrary.character.HumanoidRootPart.AssemblyLinearVelocity = Vector3.new(newvelo.X, entityLibrary.character.HumanoidRootPart.Velocity.Y, newvelo.Z)
 						elseif SpeedMethod.Value == "WalkSpeed" then 
 							if oldWalkSpeed == nil then
 								oldWalkSpeed = entityLibrary.character.Humanoid.WalkSpeed
@@ -2392,7 +2392,7 @@ runFunction(function()
 								if SpeedJumpVanilla.Enabled then 
 									entityLibrary.character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
 								else
-									entityLibrary.character.HumanoidRootPart.Velocity = Vector3.new(entityLibrary.character.HumanoidRootPart.Velocity.X, SpeedJumpHeight.Value, entityLibrary.character.HumanoidRootPart.Velocity.Z)
+									entityLibrary.character.HumanoidRootPart.AssemblyLinearVelocity = Vector3.new(entityLibrary.character.HumanoidRootPart.Velocity.X, SpeedJumpHeight.Value, entityLibrary.character.HumanoidRootPart.Velocity.Z)
 								end
 							end
 						end
